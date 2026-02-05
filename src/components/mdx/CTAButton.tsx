@@ -30,7 +30,7 @@ export function CTAButton({
     <a 
       href={href}
       target="_blank"
-      rel="noopener noreferrer sponsored"
+      rel="nofollow sponsored noopener"
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} my-4`}
     >
       {children}

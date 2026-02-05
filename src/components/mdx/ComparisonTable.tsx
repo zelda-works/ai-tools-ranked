@@ -99,7 +99,7 @@ export function ComparisonTable({ tools, features }: ComparisonTableProps) {
                 <a
                   href={tool.link}
                   target="_blank"
-                  rel="noopener noreferrer sponsored"
+                  rel="nofollow sponsored noopener"
                   className="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors"
                 >
                   Try {tool.name}

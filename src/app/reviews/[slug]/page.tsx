@@ -30,12 +30,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: `/reviews/${params.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: 'article',
       publishedTime: post.date,
       authors: [post.author.name],
+      url: `/reviews/${params.slug}`,
     },
     twitter: {
       card: 'summary_large_image',
@@ -67,6 +71,7 @@ export default async function ReviewPage({ params }: Props) {
       '@type': 'Rating',
       ratingValue: post.rating,
       bestRating: 5,
+      worstRating: 1,
     } : undefined,
   }
 
@@ -170,7 +175,7 @@ export default async function ReviewPage({ params }: Props) {
             <a
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://aitoolsranked.com/reviews/${post.slug}`)}`}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="px-4 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors text-sm font-medium"
             >
               Share on X
@@ -178,7 +183,7 @@ export default async function ReviewPage({ params }: Props) {
             <a
               href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(`https://aitoolsranked.com/reviews/${post.slug}`)}&title=${encodeURIComponent(post.title)}`}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
             >
               Share on LinkedIn
